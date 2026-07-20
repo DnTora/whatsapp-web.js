@@ -984,13 +984,11 @@ exports.LoadUtils = () => {
             const lastMessage = chat.lastReceivedKey
                 ? window
                       .require('WAWebCollections')
-                      .Msg.get(chat.lastReceivedKey._serialized) ||
+                      .Msg.get(chat.lastReceivedKey.$1) ||
                   (
                       await window
                           .require('WAWebCollections')
-                          .Msg.getMessagesById([
-                              chat.lastReceivedKey._serialized,
-                          ])
+                          .Msg.getMessagesById([chat.lastReceivedKey.$1])
                   )?.messages?.[0]
                 : null;
             lastMessage &&
